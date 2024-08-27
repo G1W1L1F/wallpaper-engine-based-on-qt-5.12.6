@@ -16,6 +16,7 @@
 
 ## 可执行程序
 打包好的exe文件可在链接处获得：https://pan.baidu.com/s/1LPgfmNmDSK9upwIrAcDBkQ?pwd=GWLF
+
 提取码：GWLF
 如果只是使用该exe文件，则需安装ffmpeg和Lavfilters软件以正确处理GIF生成和视频播放功能的正确实现
 
