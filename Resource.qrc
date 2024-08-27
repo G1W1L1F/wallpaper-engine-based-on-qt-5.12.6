@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/my_button_icon/backward_ten.png</file>
+        <file>resource/my_button_icon/forward_ten.png</file>
+        <file>resource/my_button_icon/pause.png</file>
+        <file>resource/my_button_icon/play.png</file>
+        <file>resource/my_button_icon/restart.png</file>
+        <file>resource/my_button_icon/speed.png</file>
+        <file>resource/my_button_icon/volume.png</file>
+        <file>resource/my_button_icon/gear.png</file>
+        <file>resource/my_button_icon/set_BG.png</file>
+        <file>resource/my_button_icon_64/backward_ten.png</file>
+        <file>resource/my_button_icon_64/forward_ten.png</file>
+        <file>resource/my_button_icon_64/gear.png</file>
+        <file>resource/my_button_icon_64/pause.png</file>
+        <file>resource/my_button_icon_64/play.png</file>
+        <file>resource/my_button_icon_64/restart.png</file>
+        <file>resource/my_button_icon_64/set_BG.png</file>
+        <file>resource/my_button_icon_64/speed.png</file>
+        <file>resource/my_button_icon_64/volume.png</file>
+        <file>resource/my_button_icon_64/cancel.png</file>
+        <file>resource/my_button_icon_64/open_file.png</file>
+        <file>resource/my_button_icon/cancel.png</file>
+        <file>resource/my_button_icon/open_file.png</file>
+        <file>web_scrollbarstyle.css</file>
+        <file>resource/background/default_bg.jpg</file>
+        <file>resource/my_button_icon/close_white.png</file>
+        <file>resource/my_button_icon_64/close_white.png</file>
+        <file>resource/my_button_icon_16/backward_ten.png</file>
+        <file>resource/my_button_icon_16/cancel.png</file>
+        <file>resource/my_button_icon_16/close_black.png</file>
+        <file>resource/my_button_icon_16/close_white.png</file>
+        <file>resource/my_button_icon_16/forward_ten.png</file>
+        <file>resource/my_button_icon_16/gear.png</file>
+        <file>resource/my_button_icon_16/open_file.png</file>
+        <file>resource/my_button_icon_16/pause.png</file>
+        <file>resource/my_button_icon_16/play.png</file>
+        <file>resource/my_button_icon_16/restart.png</file>
+        <file>resource/my_button_icon_16/set_BG.png</file>
+        <file>resource/my_button_icon_16/speed.png</file>
+        <file>resource/my_button_icon_16/volume.png</file>
+    </qresource>
+</RCC>

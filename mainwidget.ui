@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWidgetClass</class>
+ <widget class="QWidget" name="MainWidgetClass">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1260</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+	background-color: rgb(255, 255, 255);
+	padding: 0px; /* 去除内边距 */
+    margin: 0px; /* 去除外边距 */
+}
+
+QFrame#frame {
+	background-color: rgba(127, 127, 127, 64);
+}
+QWidget#MainWidgetClass {
+	background-image: url(:/resource/background/default_bg.jpg);
+}
+#scrollAreaWidgetContents {
+	border:none;
+	background:transparent;
+}
+QLabel#ImagePreview {
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 10px solid black;
+
+	
+    font-family: &quot;微软雅黑&quot;, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+	color: solid black;
+}
+QLabel#ImageSizeInfoLabel {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    border: 2px solid rgba(51, 51, 51, 0.8); /* 半透明边框 */
+
+    font-family: &quot;微软雅黑&quot;, sans-serif; /* 设置字体为微软雅黑 */
+    font-size: 20px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体粗细 */
+	color: solid black; /* 设置字体颜色 */
+}
+QLabel#ImageNameInfoLabel {
+	border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(51, 51, 51, 0.8);
+
+    font-family: &quot;微软雅黑&quot;, sans-serif;
+    font-size: 20px; 
+    font-weight: bold;
+	color: solid black;
+}
+QPushButton {
+	border-radius:10px;
+	background-color: rgba(127, 127, 127, 50);
+	border: 2px solid rgba(51, 51, 51, 0.8);
+}
+QPushButton:hover{
+	border-radius:10px;
+	background-color: rgba(255, 255, 255, 80);
+	border: 2px solid rgba(51, 51, 51, 0.8);
+}
+
+QPushButton:pressed {
+    border-radius:10px;
+	background-color: rgba(255, 255, 255, 120);
+	border: 2px solid rgba(51, 51, 51, 0.8);
+}
+
+QPushButton#ImageListBnt {
+    qproperty-icon: url(:/resource/my_button_icon_64/open_file.png);
+    qproperty-iconSize: 64px;
+    
+    /* 文字样式 */
+    font-family: &quot;微软雅黑&quot;, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+}
+QPushButton#SetDesktop {
+    /* 图标样式 */
+    qproperty-icon: url(:/resource/my_button_icon_64/set_BG.png);
+    qproperty-iconSize: 64px; /* 图标大小 */
+    
+    /* 文字样式 */
+    font-family: &quot;微软雅黑&quot;, sans-serif; /* 设置字体为微软雅黑 */
+    font-size: 45px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体粗细 */
+    
+}
+QPushButton#cancelBTN {
+    qproperty-icon: url(:/resource/my_button_icon_64/cancel.png);
+    qproperty-iconSize: 64px;
+    
+    /* 文字样式 */
+    font-family: &quot;微软雅黑&quot;, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+QWidget#btn_widget {
+    border: none;
+    background: transparent;
+}
+
+QScrollArea#controller_scrollArea {
+    border: none;
+    background: transparent;
+}
+
+QFramet#frame {
+    border: none;
+    background: transparent;
+}
+QTabWidget
+{
+	background:transparent;
+}
+
+QMenuBar {
+    background-color: #2c3e50; /* 菜单栏背景色 */
+    border: 1px solid #34495e; /* 菜单栏边框 */
+    font-family: &quot;微软雅黑&quot;, sans-serif; /* 菜单栏字体 */
+    font-size: 14px; /* 字体大小 */
+    font-weight: bold;
+    color: #ecf0f1; /* 字体颜色 */
+}
+
+QMenuBar::item {
+    background: transparent; /* 菜单项背景色 */
+    padding: 5px 10px; /* 内边距 */
+    border-radius: 3px; /* 圆角 */
+}
+
+QMenuBar::item:selected {
+    background-color: #3a536b; /* 选中项背景色 */
+}
+QMenuBar::item:pressed {
+    background-color: #3a536b; /* 按下项背景色 */
+}
+QMenu {
+    background-color: #2c3e50; /* 菜单背景色 */
+    border: 1px solid #34495e; /* 菜单边框 */
+    color: #ecf0f1; /* 字体颜色 */
+}
+
+/* QScrollBar styles */
+QScrollBar {
+    background: transparent;     /* 滚动条背景 */
+    width: 12px;                /* 滚动条宽度 */
+    margin: 0px 0 0px 0;      /* 滚动条上下边距 */
+    border-radius: 6px;         /* 圆角 */
+}
+QScrollBar::handle {
+    background: #b0b0b0;        /* 滑块背景 */
+    min-height: 20px;           /* 滑块最小高度 */
+    border-radius: 6px;         /* 滑块圆角 */
+}
+QScrollBar::handle:hover {
+    background: #909090;        /* 滑块悬停背景 */
+}
+QScrollBar::add-line, QScrollBar::sub-line {
+    border: none;               /* 无边框 */
+    background: transparent;   /* 无背景 */
+}
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: transparent;   /* 无背景 */
+}
+QScrollBar::up-arrow, QScrollBar::down-arrow {
+    border: none;               /* 无边框 */
+    width: 0px;                /* 箭头宽度 */
+    height: 0px;               /* 箭头高度 */
+    background: transparent;   /* 无背景 */
+}
+
+QMenu {
+    background-color: #2c3e50; /* 菜单背景色 */
+    border: 1px solid #34495e; /* 菜单边框 */
+    color: #ecf0f1;            /* 字体颜色 */
+}
+QMenu::item {
+    padding: 5px 30px 5px 30px; /* 内边距 */
+    margin: 5px 0px 5px 0px;   /* 外边距 */
+    border-radius: 5px;        /* 圆角 */
+}
+QMenu::item:selected {
+    background-color: #34495e; /* 选中项背景色 */
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>28</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item row="0" column="2">
+       <widget class="QScrollArea" name="controller_scrollArea">
+        <property name="minimumSize">
+         <size>
+          <width>420</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>420</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>420</width>
+           <height>770</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="ImagePreview">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>1</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>380</width>
+              <height>380</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>380</width>
+              <height>380</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="ImageNameInfoLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>380</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>380</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="ImageSizeInfoLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>380</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>380</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="SetDesktop">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>380</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>380</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>更改壁纸</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="btn_widget" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>380</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>380</width>
+              <height>100</height>
+             </size>
+            </property>
+            <widget class="QPushButton" name="cancelBTN">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>0</y>
+               <width>180</width>
+               <height>70</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>180</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>180</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>取消</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="ImageListBnt">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>190</width>
+               <height>70</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>190</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>190</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>图库</string>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="wallpaperMode">
+            <property name="minimumSize">
+             <size>
+              <width>380</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>380</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    padding: 0px 0px; /* 上下左右的内边距 */
+    color: solid black;
+    selection-color: white; /* 在下拉列表中的选中项的文字颜色 */
+
+    background-color: rgba(127, 127, 127, 50);
+
+    font-family: &quot;微软雅黑&quot;, sans-serif;
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    background-color: #000; /* 设置下拉按钮的背景色 */
+	border-radius: 5px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #2c3e50;
+    border: 1px solid #34495e;
+    selection-background-color: #3a536b;
+    selection-color: white;
+    padding: 5px; /* 下拉列表项的内边距 */
+	color: gray;
+	outline: 0;
+}
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="videoVolumeSlider">
+            <property name="minimumSize">
+             <size>
+              <width>380</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>380</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSlider
+{
+    background-color: transparent;
+} 
+QSlider::groove:horizontal {
+            border: 1px solid black; /* 滑槽边框颜色 */
+            height: 5px; /* 滑槽高度 */
+            background: #aaa; /* 滑槽背景颜色 */
+        }
+        QSlider::handle:horizontal {
+            background: solid black; /* 滑块背景颜色 */
+            border: 2px solid black; /* 滑块边框颜色 */
+            width: 20px; /* 滑块宽度 */
+            height: 20px; /* 滑块高度 */
+            margin: -7px 0; /* 确保滑块在滑槽中心 */
+            border-radius: 10px; /* 滑块圆角半径 */
+        }
+        QSlider::handle:horizontal:pressed {
+            background: #aaa; /* 滑块被按下时的颜色 */
+            border: 2px #aaa; /* 滑块被按下时的边框颜色 */
+        }
+        QSlider::groove:vertical {
+            border: 1px solid #999; /* 滑槽边框颜色 */
+            width: 5px; /* 滑槽宽度 */
+            background: #ddd; /* 滑槽背景颜色 */
+        }
+        QSlider::handle:vertical {
+            background: #FFFFFF; /* 滑块背景颜色 */
+            border: 2px solid black; /* 滑块边框颜色 */
+            width: 20px; /* 滑块宽度 */
+            height: 20px; /* 滑块高度 */
+            margin: 0 -7px; /* 确保滑块在滑槽中心 */
+            border-radius: 10px; /* 滑块圆角半径 */
+        }
+        QSlider::handle:vertical:pressed {
+            background: #FFFFFF; /* 滑块被按下时的颜色 */
+            border: 2px solid black; /* 滑块被按下时的边框颜色 */
+        }</string>
+            </property>
+            <property name="value">
+             <number>49</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="focusPolicy">
+         <enum>Qt::TabFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QWidget
+{
+	background:transparent;
+}
+
+QTabBar::tab {
+    width: 120px;  /* 固定宽度 */
+    height: 20px;  /* 固定高度 */
+	
+    border: 2px solid rgba(51, 51, 51, 200); /* 标签的边框 */
+	border-radius: 5px; /* 内容区域的圆角 */
+    padding: 5px; /* 标签内边距 */
+    
+    font-family: &quot;微软雅黑&quot;, sans-serif; /* 设置字体为微软雅黑 */
+    font-size: 20px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体粗细 */
+	margin: 2px;
+}
+
+/* QTabBar 中选中的标签样式 */
+QTabBar::tab:selected {
+    background-color: #2c3e50; /* 选中标签的背景颜色 */
+    color: white; /* 选中标签的文本颜色 */
+}
+
+/* QTabBar 中未选中的标签样式 */
+QTabBar::tab:!selected {
+    background-color: rgba(51, 51, 51, 51); /* 未选中标签的背景颜色 */
+    color:balck solid; /* 未选中标签的文本颜色 */
+}
+
+/* QTabWidget 的内容区域样式 */
+QTabWidget::pane {
+    border: 2px solid rgba(51, 51, 51, 200); /* 内容区域的边框 */
+    border-radius: 5px; /* 内容区域的圆角 */
+    padding: 0px; /* 内容区域的内边距 */
+}
+
+/* 设置 QStackedWidget 的背景为透明 */
+QTabWidget QStackedWidget {
+    background: transparent;  /* 透明背景 */
+}
+
+QTabBar::close-button {
+    subcontrol-position: right;           /* 关闭按钮位于右侧 */
+	image: url(:/resource/my_button_icon_16/close_white.png);
+	background-color: rgba(32, 32, 32, 0);
+	margin: 3px;
+}
+
+/* QTabWidget 关闭按钮悬停时的样式 */
+QTabBar::close-button:hover {
+	image: url(:/resource/my_button_icon_16/close_black.png);
+	background-color: rgba(255, 255, 255, 80);
+}
+
+/* QTabWidget 关闭按钮按下时的样式 */
+QTabBar::close-button:pressed {
+    image: url(:/resource/my_button_icon_16/close_black.png); /* 按下状态图标 */
+	background-color: rgba(255, 255, 255, 120);
+}</string>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="ALL_BGS">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget
+{
+	background:transparent;
+}</string>
+         </property>
+         <attribute name="title">
+          <string>全部壁纸</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QListWidget" name="ImagelistWidget">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>450</width>
+              <height>420</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">  QListWidget {
+                      background-color: rgba(0, 0, 0, 80); /* 主背景颜色 */
+                      border: none;               /* 无边框 */
+                      padding: 5px;               /* 内边距 */
+                      outline: 0;                 /* 移除默认焦点外观 */
+                      }
+
+                      /* QListWidget item styles */
+                      QListWidget::item {
+                      background-color: #1c1c1c;  /* 项背景颜色 */
+                      border: 0px solid #1c1c1c;  /* 边框颜色 */
+                      border-radius: 0px;        /* 圆角 */
+                      }
+
+                      QListWidget::item:hover {
+                      background-color:#5A7F9A;  /* 鼠标悬停时背景色 */
+                      }
+                      QListWidget::item:selected {
+                      background-color: #7A9AB6;  /* 选中时背景色 */
+                      color: #3a2f1f;             /* 选中时字体颜色 */
+                      }</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="Favorite_BGS">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget
+{
+	background:transparent;
+}</string>
+         </property>
+         <attribute name="title">
+          <string>我的收藏</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QListWidget" name="FavoritelistWidget">
+            <property name="minimumSize">
+             <size>
+              <width>420</width>
+              <height>450</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">  QListWidget {
+                      background-color: rgba(0, 0, 0, 80); /* 主背景颜色 */
+                      border: none;               /* 无边框 */
+                      padding: 5px;               /* 内边距 */
+                      outline: 0;                 /* 移除默认焦点外观 */
+                      }
+
+                      /* QListWidget item styles */
+                      QListWidget::item {
+                      background-color: #1c1c1c;  /* 项背景颜色 */
+                      border: 0px solid #1c1c1c;  /* 边框颜色 */
+                      border-radius: 0px;        /* 圆角 */
+                      }
+
+                      QListWidget::item:hover {
+                      background-color:#5A7F9A;  /* 鼠标悬停时背景色 */
+                      }
+                      QListWidget::item:selected {
+                      background-color: #7A9AB6;  /* 选中时背景色 */
+                      color: #3a2f1f;             /* 选中时字体颜色 */
+                      }</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="WallHeaven_web">
+         <property name="minimumSize">
+          <size>
+           <width>420</width>
+           <height>450</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget
+{
+	background-color: rgba(0, 0, 0, 50);
+	border: none;
+}</string>
+         </property>
+         <attribute name="title">
+          <string>壁纸网站</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents_2">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>827</width>
+               <height>728</height>
+              </rect>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>29</width>
+                  <height>703</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="urlInput">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>600</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    border-radius: 10px;
+    background-color: rgba(200, 200, 200, 80); /* 半透明背景 */
+    border: 2px solid rgba(51, 51, 51, 1); /* 半透明边框 */
+
+    font-family: &quot;微软雅黑&quot;, sans-serif; /* 设置字体为微软雅黑 */
+    font-size: 25px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体粗细 */
+}
+QLineEdit:hover{
+	border-radius:10px;
+	background-color: rgba(255, 255, 255, 80);
+	border: 2px solid rgba(51, 51, 51, 0.8);
+}
+</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="openUrlBTN">
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>120</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	border-radius:10px;
+	background-color: rgba(127, 127, 127, 50);
+	border: 2px solid rgba(51, 51, 51, 0.8);
+	font-family: &quot;微软雅黑&quot;, sans-serif; /* 设置字体为微软雅黑 */
+    font-size: 25px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体粗细 */
+}
+QPushButton:hover{
+	border-radius:10px;
+	background-color: rgba(255, 255, 255, 80);
+	border: 2px solid rgba(51, 51, 51, 0.8);
+}
+QPushButton:pressed {
+    border-radius:10px;
+	background-color: rgba(255, 255, 255, 120);
+	border: 2px solid rgba(51, 51, 51, 0.8);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>跳转</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>29</width>
+                  <height>703</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+ <slots>
+  <slot>PushButtonClicked()</slot>
+ </slots>
+</ui>
